@@ -3,13 +3,12 @@ package com.itechart.admin_service_api.api;
 import com.itechart.admin_service_api.config.FeignConfig;
 import com.itechart.admin_service_api.dto.TaskDto;
 import com.itechart.admin_service_api.dto.TaskInternDto;
+import com.itechart.admin_service_api.dto.request.UpdateLinkRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,4 +26,7 @@ public interface AdminServiceClient {
 
     @PostMapping("/updateLink")
     ResponseEntity<TaskInternDto> updateGitLink(@RequestBody TaskInternDto taskInternDto);
+
+    @PutMapping("/{task-id}")
+    ResponseEntity<UpdateLinkRequest> updateTaskLink(@PathVariable(name = "task-id") Long taskId, @RequestBody UpdateLinkRequest linkRequest);
 }
