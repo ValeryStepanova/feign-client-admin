@@ -27,4 +27,6 @@ public interface AdminServiceClient {
 
     @PostMapping("/updateLink")
     ResponseEntity<TaskInternDto> updateGitLink(@RequestBody TaskInternDto taskInternDto);
+    @GetMapping("/taskinterns/{taskInternId}/{internId}")
+    ResponseEntity<TaskInternDto> getTaskInternById(@PathVariable Long taskInternId, @PathVariable UUID internId);
 }
