@@ -29,4 +29,6 @@ public interface AdminServiceClient {
 
     @PutMapping("/{task-id}")
     ResponseEntity<UpdateLinkRequest> updateTaskLink(@PathVariable(name = "task-id") Long taskId, @RequestBody UpdateLinkRequest linkRequest);
+    @GetMapping("/taskinterns/{taskInternId}/{internId}")
+    ResponseEntity<TaskInternDto> getTaskInternById(@PathVariable Long taskInternId, @PathVariable UUID internId);
 }
